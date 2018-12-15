@@ -1,0 +1,104 @@
+/*px自动转rem*/
+@function px2rem($px){
+	$rem:37.5px;
+	@return ($px / $rem) + rem;
+}
+.header{
+	height: px2rem(60px);
+	width:auto;
+	background-color:red;
+	padding-left: px2rem(23px);
+	.header-item{
+		float: left;
+		color: #ffcdce;
+		font-size: px2rem(20px);
+		margin-right: px2rem(20px);
+		line-height:  px2rem(60px);
+	
+	}
+
+
+	/*千万不能写到.header-item里面的，从外部选中某元素的第几个子元素*/
+	.header-item:nth-child(2){
+			color:#fff;
+			font-size:px2rem(50px);
+	}
+}
+
+.banner-content{
+	position: relative;
+}
+.banner{
+	width: 100%;
+	height:px2rem(400px);
+}
+.banner-title{
+		position: absolute;
+		color: #fff;
+		left:px2rem(15px);
+		bottom: px2rem(15px);
+		font-size:px2rem(40px);
+	}
+
+
+	/*新闻列表*/
+.news-content{
+
+	.news-item{
+		width: auto;
+		height: px2rem(200px);
+		padding-left:px2rem(25px);
+		padding-right:px2rem(25px); 
+		padding-top:px2rem(20px); 
+	}
+	.news-inner{
+		position: relative;
+		/*清楚内部元素引起的外边距合并（塌陷）*/
+		overflow: hidden;
+		height: 100%;
+		border-bottom: px2rem(1px) solid #ccc;
+	}
+	.news-img{
+		float: left;
+		display: block;
+		width: px2rem(180px);
+		height:px2rem(180px);
+	}
+	.news-title{
+
+		font-size: px2rem(35px);
+		margin-top: px2rem(16px);
+		padding-left: px2rem(211px);
+		padding-right: px2rem(20px);
+	}
+	.time{
+		position: absolute;
+		left:px2rem(210px);
+		bottom: px2rem(30px);
+		font-size: px2rem(20px);
+	}
+	.reads{
+		position: absolute;
+		max-width: 130px;
+		right:px2rem(80px);
+		bottom: px2rem(30px);
+		font-size: px2rem(20px);
+		
+	}
+	.reads:before {
+			content: "";
+			display: block;
+			position: absolute;
+			/*图片相对于数字长度移动*/
+			left:px2rem(-50px);
+    
+			width: px2rem(43px);
+			height:px2rem(30px);
+			background-size:contain;
+			background-image:url('../images/reads.png');
+			background-repeat:  no-repeat;
+		};
+
+
+}
+	
